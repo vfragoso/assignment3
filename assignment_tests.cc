@@ -89,7 +89,7 @@ const std::string fragment_shader_src =
     "color = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
     "}\n";
 
-struct ShaderProgramTest : public ::testing::Test {
+struct ModelTest : public ::testing::Test {
   static void SetUpTestCase() {
     // Initialize the GLFW library.
     if (!glfwInit()) {
@@ -132,7 +132,7 @@ struct ShaderProgramTest : public ::testing::Test {
   static GLFWwindow* window;
 };
 
-GLFWwindow* ShaderProgramTest::window = nullptr;
+GLFWwindow* ModelTest::window = nullptr;
 
 }  // namespace
 
@@ -169,7 +169,7 @@ TEST(TransformationsTest, RotationMatrixInverse) {
   const float angle = 3.1416f / 3.0f;
   const Eigen::Matrix4f rotation1 = ComputeRotationMatrix(axis, angle);
   const Eigen::Matrix4f rotation2 = ComputeRotationMatrix(axis, -angle);
-  EXPECT_NEAR((rotation1 * rotation2).sum(), 1.0f, 1e-3);
+  EXPECT_NEAR((rotation1 * rotation2).sum(), 4.0f, 1e-3);
 }
 
 TEST(TransformationsTest, ScalingMatrixCorrectness) {
@@ -194,7 +194,7 @@ TEST(TransformationsTest, ScalingMatrixInverse) {
   const float scale = uniform_dist(engine);
   const Eigen::Matrix4f scaling1 = ComputeScalingMatrix(scale);
   const Eigen::Matrix4f scaling2 = ComputeScalingMatrix(-scale);
-  EXPECT_NEAR((scaling1 * scaling2).sum(), 1.0f, 1e-3);
+  EXPECT_NEAR((scaling1 * scaling2).sum(), 4.0f, 1e-3);
 }
 
 TEST(ModelTest, ComputeModelMatrix) {
@@ -213,7 +213,7 @@ TEST(ModelTest, ComputeModelMatrix) {
                model_matrix * probe.homogeneous()).norm(), 0.0f, 1e-3);
 }
 
-TEST(ModelTest, VerifyNonZeroVaoAndVboIds) {
+TEST_F(ModelTest, VerifyNonZeroVaoAndVboIds) {
   const float angle = 3.1416 / 8.0f;
   Eigen::Vector3f angle_axis = Eigen::Vector3f::Random();
   angle_axis.normalize();
@@ -226,7 +226,7 @@ TEST(ModelTest, VerifyNonZeroVaoAndVboIds) {
   EXPECT_GT(model.vertex_buffer_object_id(), 0);
 }
 
-TEST(ModelTest, VerifyNonZeroVaoVboAndEboIds) {
+TEST_F(ModelTest, VerifyNonZeroVaoVboAndEboIds) {
   const float angle = 3.1416 / 8.0f;
   Eigen::Vector3f angle_axis = Eigen::Vector3f::Random();
   angle_axis.normalize();
