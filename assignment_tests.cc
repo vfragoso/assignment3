@@ -141,7 +141,7 @@ TEST(TransformationsTest, TranslationMatrixCorrectness) {
   const Eigen::Matrix4f translation = ComputeTranslationMatrix(offset);
   const Eigen::Vector3f probe = Eigen::Vector3f::Random();
   const Eigen::Vector4f translated_probe = translation * probe.homogeneous();
-  EXPECT_NEAR((translated_probe.head(3) - offset).norm(), 0.0f, 1e-3);
+  EXPECT_NEAR(((translated_probe.head(3) - offset) - probe).norm(), 0.0f, 1e-3);
 }
 
 TEST(TransformationsTest, TranslationMatrixInverse) {
