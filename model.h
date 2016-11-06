@@ -41,6 +41,8 @@
 #include <Eigen/Core>
 #include <GL/glew.h>
 
+#include "shader_program.h"
+
 namespace wvu {
 // Class that holds the necessary information of a 3D model in OpenGL.
 class Model {
@@ -80,9 +82,11 @@ public:
 
   // Draws the model. Executes OpenGL calls to render the set VAO.
   // Params:
+  //   shader_program  The shader program that is currently in use.
   //   projection  The camera projection matrix.
   //   view  The camera pose matrix (world -> camera transformation matrix).
-  void Draw(const Eigen::Matrix4f& projection,
+  void Draw(const ShaderProgram& shader_program,
+            const Eigen::Matrix4f& projection,
             const Eigen::Matrix4f& view);
 
   // Sets the orientation or pose of the object using the Rodrigues

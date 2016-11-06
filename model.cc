@@ -38,6 +38,8 @@
 #include <Eigen/Geometry>
 #include <GL/glew.h>
 
+#include "shader_program.h"
+
 namespace wvu {
 Model::Model(const Eigen::Vector3f& orientation,
              const Eigen::Vector3f& position,
@@ -135,7 +137,8 @@ void Model::SetVerticesIntoGpu() {
   // TODO(vfragoso): Implement me!
 }
 
-void Model::Draw(const Eigen::Matrix4f& projection,
+void Model::Draw(const ShaderProgram& shader_program,
+                 const Eigen::Matrix4f& projection,
                  const Eigen::Matrix4f& view) {
   // TODO(vfragoso): Implement me!
 }
