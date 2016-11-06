@@ -149,7 +149,7 @@ TEST(TransformationsTest, TranslationMatrixInverse) {
   const Eigen::Matrix4f translation1 = ComputeTranslationMatrix(offset1);
   const Eigen::Vector3f offset2 = -1.0f * offset1;
   const Eigen::Matrix4f translation2 = ComputeTranslationMatrix(offset2);
-  EXPECT_NEAR((translation1 * translation2).sum(), 1.0f, 1e-3);
+  EXPECT_NEAR((translation1 * translation2).sum(), 4.0f, 1e-3);
 }
 
 TEST(TransformationsTest, RotationMatrixCorrectness) {
