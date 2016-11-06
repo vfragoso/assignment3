@@ -61,7 +61,7 @@ inline GLfloat ComputeCotangent(const GLfloat angle) {
 
 // Computes the perspective camera projection metrix.
 // Params:
-//   field_of_view  The field of view angle in degrees.
+//   field_of_view  The field of view angle in radians.
 //   aspect_ratio  The width / height ratio of the window dimensions.
 //   near  The near distance plane.
 //   far  The far distance plane.

@@ -164,7 +164,6 @@ bool CreateShaderProgram(wvu::ShaderProgram* shader_program) {
   if (!shader_program->Create(&error_info_log)) {
     std::cout << "ERROR: " << error_info_log << "\n";
   }
-  // TODO(vfragoso): Implement me!
   if (!shader_program->shader_program_id()) {
     std::cerr << "ERROR: Could not create a shader program.\n";
     return false;
@@ -255,7 +254,7 @@ int main(int argc, char** argv) {
   ConstructModels(&models_to_draw);
 
   // Construct the camera projection matrix.
-  const float field_of_view = 45.0f;
+  const float field_of_view = wvu::ConvertDegreesToRadians(45.0f);
   const float aspect_ratio = static_cast<float>(kWindowWidth / kWindowHeight);
   const float near_plane = 0.1f;
   const float far_plane = 10.0f;

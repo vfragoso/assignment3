@@ -36,47 +36,5 @@
 #include <Eigen/Geometry>
 
 namespace wvu {
-// Adds two 3d points and returns the resultant added point.
-Eigen::Vector3f Add3dPoints(const Eigen::Vector3f& x,
-                            const Eigen::Vector3f& y) {
-  return x + y;
-}
-
-// Adds two 4d points and returns the resultant added point.
-Eigen::Vector4f Add4dPoints(const Eigen::Vector4f& x,
-                            const Eigen::Vector4f& y) {
-  return x + y;
-}
-
-// Multiply two 4x4 matrices.
-Eigen::Matrix4f Multiply4x4Matrices(const Eigen::Matrix4f& x,
-                                    const Eigen::Matrix4f& y) {
-  return x * y;
-}
-
-// Multiply matrix-vector. Returns the multiplication.
-Eigen::Vector4f MultiplyVectorAndMatrix(const Eigen::Matrix4f& x,
-                                        const Eigen::Vector4f& y) {
-  return x * y;
-}
-
-// Calculate the dot product of two vectors.
-float ComputeDotProduct(const Eigen::Vector3f& x,
-                        const Eigen::Vector3f& y) {
-  return x.dot(y);
-}
-
-// Calculates the angle between two vectors in radians.
-float CalculateAngleBetweenTwoVectors(const Eigen::Vector3f& x,
-                                      const Eigen::Vector3f& y) {
-  const float cos_theta = x.normalized().dot(y.normalized());
-  return acos(cos_theta);
-}
-
-// Calculates the cross product of two vectors.
-Eigen::Vector3f ComputeCrossProduct(const Eigen::Vector3f& x,
-                                    const Eigen::Vector3f& y) {
-  return x.cross(y);
-}
-
+// TODO(vfragoso): Remove file.
 }  // namespace

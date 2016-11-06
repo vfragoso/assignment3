@@ -73,7 +73,7 @@ public:
   ~Model();
 
   // Builds the model matrix from the orientation and position members.
-  Eigen::Matrix4f ComputeModelMatrix() const;
+  Eigen::Matrix4f ComputeModelMatrix();
 
   // Sets the VAO, VBO and EBO.
   void SetVerticesIntoGpu();
@@ -117,12 +117,15 @@ public:
   const std::vector<GLuint>& indices() const;
 
   // Returns the VBO id associated to this model.
+  const GLuint vertex_buffer_object_id();
   const GLuint vertex_buffer_object_id() const;
 
   // Returns the VAO id associated to this model.
-  const GLuint vertx_array_object_id() const;
+  const GLuint vertex_array_object_id();
+  const GLuint vertex_array_object_id() const;
 
   // Returns the EBO id assotiated to this model.
+  const GLuint element_buffer_object_id();
   const GLuint element_buffer_object_id() const;
 
 private:

@@ -126,8 +126,8 @@ TARGET_LINK_LIBRARIES(test_main
   ${GLOG_LIBRARIES})
 
 MACRO (GTEST NAME)
-  ADD_EXECUTABLE(${NAME} ${NAME}_tests.cc assignment.cc shader_program.cc)
-  TARGET_LINK_LIBRARIES(${NAME} test_main gtest ${ARGN}
+  ADD_EXECUTABLE(${NAME}_tests ${NAME}_tests.cc transformations.cc model.cc)
+  TARGET_LINK_LIBRARIES(${NAME}_tests test_main gtest ${ARGN}
     glfw
     ${GFLAGS_LIBRARIES}
     ${GLOG_LIBRARIES}

@@ -52,4 +52,9 @@ Eigen::Matrix4f ComputeRotationMatrix(const Eigen::Vector3f& rotation_axis,
 //   scale  Scale factor.
 Eigen::Matrix4f ComputeScalingMatrix(const float scale);
 
+// Converts angles in degrees to radians.
+// Parameters:
+//   angle_in_degrees  The angle in degrees.
+float ConvertDegreesToRadians(const float angle_in_degrees);
+
 }  // namespace wvu

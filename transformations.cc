@@ -62,4 +62,12 @@ Eigen::Matrix4f ComputeScalingMatrix(const float scale) {
   return Eigen::Matrix4f::Random();
 }
 
+// Converts angles in degrees to radians.
+// Parameters:
+//   angle_in_degrees  The angle in degrees.
+float ConvertDegreesToRadians(const float angle_in_degrees) {
+  // TODO: Implement me!
+  return 0.0f;
+}
+
 }  // namespace wvu

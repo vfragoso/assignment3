@@ -44,6 +44,9 @@ Model::Model(const Eigen::Vector3f& orientation,
   orientation_ = orientation;
   position_ = position;
   vertices_ = vertices;
+  vertex_buffer_object_id_ = 0;
+  vertex_array_object_id_ = 0;
+  element_buffer_object_id_ = 0;
 }
 
 Model::Model(const Eigen::Vector3f& orientation,
@@ -54,10 +57,17 @@ Model::Model(const Eigen::Vector3f& orientation,
   position_ = position;
   vertices_ = vertices;
   indices_ = indices;
+  vertex_buffer_object_id_ = 0;
+  vertex_array_object_id_ = 0;
+  element_buffer_object_id_ = 0;
+}
+
+Model::~Model() {
+  // TODO: Delete the buffers in GPU.
 }
 
 // Builds the model matrix from the orientation and position members.
-Eigen::Matrix4f Model::ComputeModelMatrix() const {
+Eigen::Matrix4f Model::ComputeModelMatrix() {
   // TODO(vfragoso): Implment me!
   return Eigen::Matrix4f::Random();
 }
@@ -94,6 +104,30 @@ const Eigen::MatrixXf& Model::vertices() const {
 
 const std::vector<GLuint>& Model::indices() const {
   return indices_;
+}
+
+const GLuint Model::vertex_buffer_object_id() const {
+  return vertex_buffer_object_id_;
+}
+
+const GLuint Model::vertex_buffer_object_id() {
+  return vertex_buffer_object_id_;
+}
+
+const GLuint Model::vertex_array_object_id() const {
+  return vertex_array_object_id_;
+}
+
+const GLuint Model::vertex_array_object_id() {
+  return vertex_array_object_id_;
+}
+
+const GLuint Model::element_buffer_object_id() const {
+  return element_buffer_object_id_;
+}
+
+const GLuint Model::element_buffer_object_id() {
+  return element_buffer_object_id_;
 }
 
 void Model::SetVerticesIntoGpu() {

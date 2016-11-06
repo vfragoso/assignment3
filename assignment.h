@@ -48,7 +48,7 @@
 // assignment3_victor_fragoso.zip.
 //
 // The zip file should include *only* source code of the project. Specifically,
-// your .cc files.
+// your and .cc files.
 //
 // Compilation. Use the instructions we saw in class to compile this project.
 //
@@ -57,31 +57,7 @@
 // the implementations are likely to be correct all the tests run by the binary
 // will be marked as OK.
 namespace wvu {
-// Adds two 3d points and returns the resultant added point.
-Eigen::Vector3f Add3dPoints(const Eigen::Vector3f& x, const Eigen::Vector3f& y);
-
-// Adds two 4d points and returns the resultant added point.
-Eigen::Vector4f Add4dPoints(const Eigen::Vector4f& x, const Eigen::Vector4f& y);
-
-// Multiplies two 4x4 matrices.
-Eigen::Matrix4f Multiply4x4Matrices(const Eigen::Matrix4f& x,
-                                    const Eigen::Matrix4f& y);
-
-// Multiplies matrix-vector. Returns the multiplication.
-Eigen::Vector4f MultiplyVectorAndMatrix(const Eigen::Matrix4f& x,
-                                        const Eigen::Vector4f& y);
-
-// Calculates the dot product of two vectors.
-float ComputeDotProduct(const Eigen::Vector3f& x, const Eigen::Vector3f& y);
-
-// Calculates the angle between two vectors in radians.
-float CalculateAngleBetweenTwoVectors(const Eigen::Vector3f& x,
-                                      const Eigen::Vector3f& y);
-
-// Calculates the cross product of two vectors using the skew symmetric matrix.
-Eigen::Vector3f ComputeCrossProduct(const Eigen::Vector3f& x,
-                                    const Eigen::Vector3f& y);
-
+// TODO(vfragoso): Remove me!
 }  // namespace
 
 #endif  // ASSIGNMENT_3_H_
