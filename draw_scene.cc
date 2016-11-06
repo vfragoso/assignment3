@@ -216,7 +216,7 @@ int main(int argc, char** argv) {
   SetWindowHints();
 
   // Create a window and its OpenGL context.
-  const std::string window_name = "Hello Triangle";
+  const std::string window_name = "Assignment 3";
   GLFWwindow* window = glfwCreateWindow(kWindowWidth,
                                         kWindowHeight,
                                         window_name.c_str(),
