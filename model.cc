@@ -35,6 +35,7 @@
 #include "model.h"
 
 #include <Eigen/Core>
+#include <Eigen/Geometry>
 #include <GL/glew.h>
 
 namespace wvu {
