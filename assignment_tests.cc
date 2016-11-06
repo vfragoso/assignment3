@@ -193,7 +193,7 @@ TEST(TransformationsTest, ScalingMatrixInverse) {
   std::uniform_real_distribution<float> uniform_dist(0.0f, 10.0f);
   const float scale = uniform_dist(engine);
   const Eigen::Matrix4f scaling1 = ComputeScalingMatrix(scale);
-  const Eigen::Matrix4f scaling2 = ComputeScalingMatrix(-scale);
+  const Eigen::Matrix4f scaling2 = ComputeScalingMatrix(1.0f / scale);
   EXPECT_NEAR((scaling1 * scaling2).sum(), 4.0f, 1e-3);
 }
 
