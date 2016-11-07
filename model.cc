@@ -39,6 +39,7 @@
 #include <GL/glew.h>
 
 #include "shader_program.h"
+#include "transformations.h"
 
 namespace wvu {
 Model::Model(const Eigen::Vector3f& orientation,
@@ -71,7 +72,7 @@ Model::~Model() {
 
 // Builds the model matrix from the orientation and position members.
 Eigen::Matrix4f Model::ComputeModelMatrix() {
-  // TODO(vfragoso): Implment me!
+  // TODO: Implment me!
   return Eigen::Matrix4f::Random();
 }
 
@@ -134,13 +135,15 @@ const GLuint Model::element_buffer_object_id() {
 }
 
 void Model::SetVerticesIntoGpu() {
-  // TODO(vfragoso): Implement me!
+  // TODO: Implement me!
 }
 
 void Model::Draw(const ShaderProgram& shader_program,
                  const Eigen::Matrix4f& projection,
                  const Eigen::Matrix4f& view) {
-  // TODO(vfragoso): Implement me!
+  // The model transformation must be computed using ComputeModelMatrix().
+  const Eigen::Matrix4f model = ComputeModelMatrix();
+  // TODO: Implement me!
 }
 
 }  // namespace wvu
