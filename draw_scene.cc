@@ -181,6 +181,8 @@ void RenderScene(const wvu::ShaderProgram& shader_program,
   ClearTheFrameBuffer();
   // Let OpenGL know that we want to use our shader program.
   shader_program.Use();
+  // Render the models in a wireframe mode.
+  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
   // Draw the models.
   // TODO: For every model in models_to_draw, call its Draw() method, passing
   // the view and projection matrices.
