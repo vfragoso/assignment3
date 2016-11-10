@@ -30,6 +30,7 @@
 //
 
 // C headers.
+#define _USE_MATH_DEFINES  // For using M_PI.
 #include <stdlib.h>  // For random.
 #include <math.h>
 
@@ -153,10 +154,11 @@ TEST(TransformationsTest, TranslationMatrixInverse) {
 }
 
 TEST(TransformationsTest, RotationMatrixCorrectness) {
-  Eigen::Vector3f axis = Eigen::Vector3f::UnitZ();
-  const float angle = 3.1416f / 4.0f;
+  const Eigen::Vector3f axis = Eigen::Vector3f::UnitZ();
+  const float angle = M_PI / 4.0f;
   const Eigen::Matrix4f rotation = ComputeRotationMatrix(axis, angle);
-  const Eigen::Vector3f probe = Eigen::Vector3f::Random();
+  Eigen::Vector3f probe = Eigen::Vector3f::Random();
+  probe.z() = 0.0f;
   const Eigen::Vector4f rotated_probe = rotation * probe.homogeneous();
   EXPECT_NEAR(probe.normalized().dot(rotated_probe.head(3).normalized()),
               cos(angle), 1e-3);
@@ -166,7 +168,7 @@ TEST(TransformationsTest, RotationMatrixInverse) {
   Eigen::Vector3f axis;
   axis.setRandom();
   axis.normalize();  // In place normalization.
-  const float angle = 3.1416f / 3.0f;
+  const float angle = M_PI / 3.0f;
   const Eigen::Matrix4f rotation1 = ComputeRotationMatrix(axis, angle);
   const Eigen::Matrix4f rotation2 = ComputeRotationMatrix(axis, -angle);
   EXPECT_NEAR((rotation1 * rotation2).sum(), 4.0f, 1e-3);
@@ -198,7 +200,7 @@ TEST(TransformationsTest, ScalingMatrixInverse) {
 }
 
 TEST(ModelTest, ComputeModelMatrix) {
-  const float angle = 3.1416 / 8.0f;
+  const float angle = M_PI / 8.0f;
   Eigen::Vector3f angle_axis = Eigen::Vector3f::Random();
   angle_axis.normalize();
   angle_axis *= angle;
@@ -214,7 +216,7 @@ TEST(ModelTest, ComputeModelMatrix) {
 }
 
 TEST_F(ModelTest, VerifyNonZeroVaoAndVboIds) {
-  const float angle = 3.1416 / 8.0f;
+  const float angle = M_PI / 8.0f;
   Eigen::Vector3f angle_axis = Eigen::Vector3f::Random();
   angle_axis.normalize();
   angle_axis *= angle;
@@ -227,7 +229,7 @@ TEST_F(ModelTest, VerifyNonZeroVaoAndVboIds) {
 }
 
 TEST_F(ModelTest, VerifyNonZeroVaoVboAndEboIds) {
-  const float angle = 3.1416 / 8.0f;
+  const float angle = M_PI / 8.0f;
   Eigen::Vector3f angle_axis = Eigen::Vector3f::Random();
   angle_axis.normalize();
   angle_axis *= angle;
