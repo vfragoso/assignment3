@@ -199,7 +199,7 @@ TEST(TransformationsTest, ScalingMatrixInverse) {
   EXPECT_NEAR((scaling1 * scaling2).sum(), 4.0f, 1e-3);
 }
 
-TEST(ModelTest, ComputeModelMatrix) {
+TEST_F(ModelTest, ComputeModelMatrix) {
   const float angle = M_PI / 8.0f;
   Eigen::Vector3f angle_axis = Eigen::Vector3f::Random();
   angle_axis.normalize();
